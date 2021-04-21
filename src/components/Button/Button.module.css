@@ -1,0 +1,61 @@
+/* // ----------------------------------------> BUTTON */
+
+.button__title {
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 0;
+
+  min-width: 149px;
+  width: 100%;
+
+  min-height: 53px;
+  margin-right: 2px;
+  border: 0;
+  background-color: red;
+  color: black;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  /* @include for-size(tablet) {
+    // min-width: 138px;
+    width: 139px;
+    min-height: 40px;
+    margin-right: 0px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    background-color: #fafbfd;
+  } */
+}
+
+.button__title:hover,
+.button__title:focus {
+  background: red;
+  color: white;
+
+  /* @include for-size(tablet) {
+    background: #fefefe;
+    color: $primary-orange-color;
+  } */
+}
+
+.button__title_active {
+  background: orange;
+  color: white;
+
+  /* @include for-size(tablet) {
+    background: #fefefe;
+    color: $primary-orange-color;
+  } */
+}
+
+.link {
+  text-decoration: none;
+}
