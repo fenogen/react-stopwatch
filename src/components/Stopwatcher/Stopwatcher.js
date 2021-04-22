@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from './Button/Button';
+import Button from '../Button/Button';
 
 export default class Stopwatcher extends Component {
   state = {
@@ -11,7 +11,7 @@ export default class Stopwatcher extends Component {
   };
 
   fnStart = () => {
-    console.log('start');
+    // console.log('start');
     this.intervalID = setInterval(this.timer, 1000);
     this.setState({
       pause: true,
@@ -20,7 +20,7 @@ export default class Stopwatcher extends Component {
   };
 
   fnStop = () => {
-    console.log('stop');
+    // console.log('stop');
     clearInterval(this.intervalID);
     this.setState({
       ss: 0,
@@ -32,17 +32,17 @@ export default class Stopwatcher extends Component {
   };
 
   fnWait = () => {
-    console.log('Wait');
+    // console.log('wait');
     if (this.state.pause) {
       clearInterval(this.intervalID);
     }
-        this.setState({
+    this.setState({
       buttonDisabled: false,
     });
   };
 
   fnReset = () => {
-    console.log('reset');
+    // console.log('reset');
     clearInterval(this.intervalID);
     this.setState({
       ss: 0,
@@ -72,29 +72,28 @@ export default class Stopwatcher extends Component {
   };
 
   render() {
-    let hours = this.state.hh.toString().padStart(2,"0")
-    let minutes = this.state.mm.toString().padStart(2,"0")
-    let seconds = this.state.ss.toString().padStart(2,"0")
+    let hours = this.state.hh.toString().padStart(2, '0');
+    let minutes = this.state.mm.toString().padStart(2, '0');
+    let seconds = this.state.ss.toString().padStart(2, '0');
     return (
       <div>
-        <h1>Stopwatcher</h1>
-        <Button title="Start" fnTimer={this.fnStart} buttonStatus={this.state.buttonDisabled}/>
+        <h2>Stopwatcher</h2>
+        <Button
+          title="Start"
+          fnTimer={this.fnStart}
+          buttonStatus={this.state.buttonDisabled}
+        />
         <Button title="Stop" fnTimer={this.fnStop} />
         <Button title="Wait" fnTimer={this.fnWait} />
-        <Button title="Reset" fnTimer={this.fnReset} buttonStatus={!this.state.buttonDisabled}/>
+        <Button
+          title="Reset"
+          fnTimer={this.fnReset}
+          buttonStatus={!this.state.buttonDisabled}
+        />
         <div className="box">
           <p>
-            <span className="value" data-value="hours">
-              {hours}
-            </span>{' '}
-            :{' '}
-            <span className="value" data-value="mins">
-              {minutes}
-            </span>{' '}
-            :{' '}
-            <span className="value" data-value="secs">
-              {seconds}
-            </span>
+            <span>{hours}</span> : <span>{minutes}</span> :{' '}
+            <span>{seconds}</span>
           </p>
         </div>
       </div>
